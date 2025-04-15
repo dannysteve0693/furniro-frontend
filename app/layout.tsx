@@ -1,22 +1,22 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "@/styles/globals.css";
 
+const inter = Inter({ subsets: ["latin"] });
+
 export const metadata: Metadata = {
-  title: "Furniro Next Furniture",
-  description: "A Furniture Site For You by Danny",
+  title: "Furniro - Modern Furniture Store",
+  description: "Discover our collection of modern furniture",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="en">
-      <body
-        className={``}
-      >
+      <body className={inter.className}>
         <nav>
           <a href="#">logo</a>
           <ul>
