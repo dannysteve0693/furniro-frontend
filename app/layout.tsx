@@ -1,8 +1,35 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/styles/globals.css";
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
+import localFont from 'next/font/local'
 
-const inter = Inter({ subsets: ["latin"] });
+const poppins = localFont({
+  src: [
+    {
+      path: '../public/fonts/Poppins-Regular.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/Poppins-Medium.ttf',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/Poppins-SemiBold.ttf',
+      weight: '600',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/Poppins-Bold.ttf',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-poppins',
+})
 
 export const metadata: Metadata = {
   title: "Furniro - Modern Furniture Store",
@@ -15,61 +42,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <nav>
-          <a href="#">logo</a>
-          <ul>
-            <li>Home</li>
-            <li>Shop</li>
-            <li>About</li>
-            <li>Contact</li>
-          </ul>
-          <ul>
-            <li>People</li>
-            <li>Magnifier</li>
-            <li>Heart</li>
-            <li>Cart</li>
-          </ul>
-        </nav>
+    <html lang="en" className={poppins.variable}>
+      <body className={poppins.className}>
+        <Header />
         {children}
-        <footer>
-          <div>
-            <div>
-              <h5>Furino</h5>
-              <address>400 University Drive Suite 200 Coral Gables,
-                FL 33134 USA</address>
-            </div>
-            <div>
-              <div>Links</div>
-              <div>
-                <ul>
-                  <li>Home</li>
-                  <li>Shop</li>
-                  <li>About</li>
-                  <li>Contact</li>
-                </ul>
-              </div>
-            </div>
-            <div>
-              <div>Help</div>
-              <div>
-                <ul>
-                  <li>Payment Options</li>
-                  <li>Returns</li>
-                  <li>Privacy Policies</li>
-                </ul>
-              </div>
-            </div>
-            <div>
-              <div>Newsletter</div>
-              <div>
-                Email and Subscribe
-              </div>
-            </div>
-          </div>
-          <p>2023 furino. All right reserved</p>
-        </footer>
+        <Footer />
       </body>
     </html>
   );

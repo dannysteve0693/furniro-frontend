@@ -1,7 +1,14 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
+
+import logoFurniroImg from '@/public/logo-furniro.svg'
+import logoCartMarketImg from '@/public/images/cartmarket.svg'
+import logoLoveImg from '@/public/images/love.svg'
+import logoMagnifierImg from '@/public/images/Magnifier.svg'
+import logoPeopleMarkImg from '@/public/images/PeopleWithMark.svg'
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -11,39 +18,35 @@ export default function Header() {
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="text-2xl font-bold text-gray-800">
-            Furniro
+            <Image src={logoFurniroImg} alt='furniro logo image' />
           </Link>
-          
+
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="text-gray-600 hover:text-gray-900">Home</Link>
-            <Link href="/shop" className="text-gray-600 hover:text-gray-900">Shop</Link>
-            <Link href="/about" className="text-gray-600 hover:text-gray-900">About</Link>
-            <Link href="/contact" className="text-gray-600 hover:text-gray-900">Contact</Link>
+            <Link href="/" className={`text-gray-600 hover:text-gray-900  header-link`}>Home</Link>
+            <Link href="/shop" className="text-gray-600 hover:text-gray-900 header-link">Shop</Link>
+            <Link href="/about" className="text-gray-600 hover:text-gray-900 header-link">About</Link>
+            <Link href="/contact" className="text-gray-600 hover:text-gray-900 header-link">Contact</Link>
           </div>
 
           {/* User Actions */}
           <div className="hidden md:flex items-center space-x-6">
             <button className="text-gray-600 hover:text-gray-900">
-              <span className="sr-only">Search</span>
-              🔍
+              <Image src={logoPeopleMarkImg} alt='logo people mark with img' />
             </button>
             <button className="text-gray-600 hover:text-gray-900">
-              <span className="sr-only">Account</span>
-              👤
+              <Image src={logoMagnifierImg} alt='logo magnifier with img' />
             </button>
             <button className="text-gray-600 hover:text-gray-900">
-              <span className="sr-only">Wishlist</span>
-              ❤️
+              <Image src={logoLoveImg} alt='logo love with img' />
             </button>
             <button className="text-gray-600 hover:text-gray-900">
-              <span className="sr-only">Cart</span>
-              🛒
+              <Image src={logoCartMarketImg} alt='logo cart market with img' />
             </button>
           </div>
 
           {/* Mobile menu button */}
-          <button 
+          <button
             className="md:hidden"
             onClick={() => setIsOpen(!isOpen)}
           >
